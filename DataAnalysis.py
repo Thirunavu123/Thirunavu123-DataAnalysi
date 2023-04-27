@@ -220,14 +220,18 @@ def get_file_options(uploaded_file):
 ############################
 # Page related program
 # Logo on the Page
-image = Image.open('D:\\Radiare\\Projects\\TGF\\Thowfeek\\Streamlit\\Output\\TGF - Logo.png')
+import requests
+# Logo on the Page
+url = "https://mma.prnewswire.com/media/1195636/The_Global_Fund_Logo.jpg"
+#response = requests.get(url)
+image = Image.open(requests.get(url, stream=True).raw)
 st.image(image)
 
 # Title of the Application
 st.title("Finance - Budget Analysis Tool - Draft")
 
 # Logo on the Page(sidebar)
-image = Image.open('D:\\Radiare\\Projects\\TGF\\Thowfeek\\Streamlit\\Output\\TGF - Logo.png')
+#image = Image.open('D:\\Radiare\\Projects\\TGF\\Thowfeek\\Streamlit\\Output\\TGF - Logo.png')
 st.sidebar.image(image, width = 100, use_column_width=False)
 
 # Upload the files to application
@@ -398,38 +402,38 @@ try:
             # append column name and max value to max_values_list
             max_values_list2.append( max_length + 40)
                     
-        pdf = PDF()
-        pdf.set_title(title)
-        pdf.set_author('Jules Verne')
-        pdf.print_chapter(1, 'Module Level Cash Outflow for Granth: ' + grant_name, 'A bar graph is a graphical representation of information. It uses bars that extend to different heights to depict value. Bar graphs can be created with vertical bars, horizontal bars, grouped bars (multiple bars that compare values in a category), or stacked bars (bars containing multiple types of information)', add_graph=False, graph_description='A bar graph is a graphical representation of information. It uses bars that extend to different heights to depict value. Bar graphs can be created with vertical bars, horizontal bars, grouped bars (multiple bars that compare values in a category), or stacked bars (bars containing multiple types of information)')
+        #pdf = PDF()
+        #pdf.set_title(title)
+        #pdf.set_author('Jules Verne')
+        #pdf.print_chapter(1, 'Module Level Cash Outflow for Granth: ' + grant_name, 'A bar graph is a graphical representation of information. It uses bars that extend to different heights to depict value. Bar graphs can be created with vertical bars, horizontal bars, grouped bars (multiple bars that compare values in a category), or stacked bars (bars containing multiple types of information)', add_graph=False, graph_description='A bar graph is a graphical representation of information. It uses bars that extend to different heights to depict value. Bar graphs can be created with vertical bars, horizontal bars, grouped bars (multiple bars that compare values in a category), or stacked bars (bars containing multiple types of information)')
         # Add graph with dataframe
-        pdf.add_graph(imagefile = image_file, description='Explanation about the graph. Can customised to create the bullet points about the data. Can also create the some notes here.', description_data = 'Note: Description of the data table. Can also write paragraphs or bullet points here. Mostly about the data table or notes about the grant etc...', table_data=df, columnwidth = max_values_list)
+        #pdf.add_graph(imagefile = image_file, description='Explanation about the graph. Can customised to create the bullet points about the data. Can also create the some notes here.', description_data = 'Note: Description of the data table. Can also write paragraphs or bullet points here. Mostly about the data table or notes about the grant etc...', table_data=df, columnwidth = max_values_list)
         #pdf.write_table( dataframe=df)
-        pdf.print_chapter(2, 'Implementer Level Cash Outflow for Granth: ' + grant_name, 'A bar graph is a graphical representation of information. It uses bars that extend to different heights to depict value. Bar graphs can be created with vertical bars, horizontal bars, grouped bars (multiple bars that compare values in a category), or stacked bars (bars containing multiple types of information).', add_graph=False, graph_description='Description of the second graph The method used to print the paragraphs is multi_cell. Each time a line reaches the right extremity of the cell or a carriage return character is met.')
+        #pdf.print_chapter(2, 'Implementer Level Cash Outflow for Granth: ' + grant_name, 'A bar graph is a graphical representation of information. It uses bars that extend to different heights to depict value. Bar graphs can be created with vertical bars, horizontal bars, grouped bars (multiple bars that compare values in a category), or stacked bars (bars containing multiple types of information).', add_graph=False, graph_description='Description of the second graph The method used to print the paragraphs is multi_cell. Each time a line reaches the right extremity of the cell or a carriage return character is met.')
         # Add graph with dataframe
-        pdf.add_graph(imagefile = image_file1, description= 'Explanation about the graph. Can customised to create the bullet points about the data. Can also create the some notes here.', description_data = 'Note: Description of the data table. Can also write paragraphs or bullet points here. Mostly about the data table or notes about the grant etc...', table_data=df1, columnwidth = max_values_list1)
-        pdf.print_chapter(3, 'Year wise Cash Outflow for Grant : ' + grant_name, 'A line graph also known as a line plot or a line chart is a graph that uses lines to connect individual data points. A line graph displays quantitative values over a specified time interval. In finance, line graphs are commonly used to depict the historical price action of an asset or security', add_graph=False, graph_description='Description of the second graph The method used to print the paragraphs is multi_cell. Each time a line reaches the right extremity of the cell or a carriage return character is met.')
+        #pdf.add_graph(imagefile = image_file1, description= 'Explanation about the graph. Can customised to create the bullet points about the data. Can also create the some notes here.', description_data = 'Note: Description of the data table. Can also write paragraphs or bullet points here. Mostly about the data table or notes about the grant etc...', table_data=df1, columnwidth = max_values_list1)
+        #pdf.print_chapter(3, 'Year wise Cash Outflow for Grant : ' + grant_name, 'A line graph also known as a line plot or a line chart is a graph that uses lines to connect individual data points. A line graph displays quantitative values over a specified time interval. In finance, line graphs are commonly used to depict the historical price action of an asset or security', add_graph=False, graph_description='Description of the second graph The method used to print the paragraphs is multi_cell. Each time a line reaches the right extremity of the cell or a carriage return character is met.')
         # Add graph with dataframe
-        pdf.add_graph(imagefile = image_file2, description= 'Explanation about the graph. Can customised to create the bullet points about the data. Can also create the some notes here.', description_data = 'Note: Description of the data table. Can also write paragraphs or bullet points here. Mostly about the data table or notes about the grant etc...', table_data=df2, columnwidth = max_values_list2)
+        #pdf.add_graph(imagefile = image_file2, description= 'Explanation about the graph. Can customised to create the bullet points about the data. Can also create the some notes here.', description_data = 'Note: Description of the data table. Can also write paragraphs or bullet points here. Mostly about the data table or notes about the grant etc...', table_data=df2, columnwidth = max_values_list2)
 
-        pdf.output("D:\\Radiare\\Projects\\TGF\\Thowfeek\\Streamlit\\Output\\Finance_" + file.name + ".pdf", 'F')
+        #pdf.output("D:\\Radiare\\Projects\\TGF\\Thowfeek\\Streamlit\\Output\\Finance_" + file.name + ".pdf", 'F')
         
         # Save the PDF to a file
         #with open("D:\\Radiare\\Projects\\TGF\\Thowfeek\\Streamlit\\Output\\Finance_" + file.name + ".pdf", 'wb') as pdf_file:
         #    pdf_file.write(pdf_bytes.getvalue())
         #st.download_button("Download PDF", pdf)
-        with open("D:\\Radiare\\Projects\\TGF\\Thowfeek\\Streamlit\\Output\\Finance_" + file.name + ".pdf", "rb") as pdf_file_download_latest:
-            PDFbyte_latest = pdf_file_download_latest.read()
+        #with open("D:\\Radiare\\Projects\\TGF\\Thowfeek\\Streamlit\\Output\\Finance_" + file.name + ".pdf", "rb") as pdf_file_download_latest:
+        #    PDFbyte_latest = pdf_file_download_latest.read()
         
-        if st.download_button(label = "Export_Report",
-                            data=PDFbyte_latest,
-                            file_name = "Finance_" + file.name + ".pdf", #file_options[0].split(".")[-2] + "_" + intermediate_file[1] + ".pdf",
-                            mime='application/octet-stream'):
+        #if st.download_button(label = "Export_Report",
+        #                    data=PDFbyte_latest,
+        #                    file_name = "Finance_" + file.name + ".pdf", #file_options[0].split(".")[-2] + "_" + intermediate_file[1] + ".pdf",
+        #                     mime='application/octet-stream'):
             #remove the temporary file
-            os.unlink(image_file)
-            os.unlink(image_file1)
-            os.unlink(image_file2)
-            st.stop()  # Stop the app execution after the file is downloaded
+            #os.unlink(image_file)
+            #os.unlink(image_file1)
+            #os.unlink(image_file2)
+            #st.stop()  # Stop the app execution after the file is downloaded
         
         # remove the temporary file
         #os.unlink(image_file)
