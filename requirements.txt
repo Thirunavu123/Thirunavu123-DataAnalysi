@@ -1,0 +1,15 @@
+fpdf
+kaleido
+matplotlib
+numpy
+pandas
+pdfkit
+Pillow
+Pillow
+plotly
+pyecharts
+PyPDF2
+reportlab
+streamlit
+streamlit-aggrid
+reportlab
